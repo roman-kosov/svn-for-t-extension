@@ -13,7 +13,7 @@ function addEditUi(recordid, tplid) {
     data = "<div class=\"recordediticons mainleft\" id=\"mainleft\">"
     data += " <div class=\"tp-record-edit-icons-left__wrapper\">";
 
-    if (tplid !== '421' && tplid !== '121' && (typeof tpl['id'] !== 'undefined')) {
+    if (typeof tpl['id'] !== 'undefined') {
         data += "	<div class=\"tp-record-edit-icons-left__one\">";
         data += "		<div class=\"tp-record-edit-icons-left__item\">";
         data += "	    	<div class=\"tp-record-edit-icons-left__item-title\">";
