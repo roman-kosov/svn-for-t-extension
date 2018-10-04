@@ -23,8 +23,13 @@ function addEditUi(recordid, tplid) {
         data += "	    	</div>";
         data += "		</div>";
         data += "	</div>";
+        data += "	<div class=\"tp-record-edit-icons-left__one-right-space\"></div>";
+        data += "   <div class=\"tp-record-edit-icons-left__one\">";
+        data += "       <div class=\"tp-record-edit-icons-left__item-title\">";
+        data += "           <span class=\"tp-record-edit-icons-left__item-tplcod\">#rec" + recordid + "</span>";
+        data += "       </div>";
+        data += "   </div>";
     }
-
     data += " </div>";
     data += "</div>";
     if (typeof tpl['id'] !== 'undefined') data += "<div class=\"recordediticons secondleft tp-record-edit-icons-left__item-tpltitle\">" + tpl['title_ru'] + "</div>";
@@ -53,16 +58,16 @@ $(document).ready(function () {
 }
 
 .recordediticons.mainleft {
-    float:left; 
-    left:15px; 
-    background-color:transparent; 
+    float:left;
+    left:15px;
+    background-color:transparent;
 }
 
 .tp-record-edit-icons-left__wrapper{
-	display: table;	
+	display: table;
 	height:28px;
 	white-space: nowrap;
-	-webkit-font-smoothing: antialiased; 
+	-webkit-font-smoothing: antialiased;
 }
 
 .tp-record-edit-icons-left__one{
@@ -81,42 +86,40 @@ $(document).ready(function () {
 
 .tp-record-edit-icons-left__item-tplcod{
 	display: table-cell;
-	height: 28px;	
-	vertical-align: middle;	
+	height: 28px;
+	vertical-align: middle;
 	padding-top: 2px;
 	padding-left:12px;
 	font-size: 13px;
-	line-height: 13px;	
-	font-weight: 500;
+	line-height: 13px;
 }
 
 .tp-record-edit-icons-left__item{
-	display: table;	
+	display: table;
 	height:28px;
 	white-space: nowrap;
-	vertical-align: middle;	
+	vertical-align: middle;
 }
 
 .tp-record-edit-icons-left__item-title{
     display: table-cell;
-    height: 28px;	
-    vertical-align: middle;	
+    height: 28px;
+    vertical-align: middle;
     padding-top: 2px;
     padding-right:12px;
     font-size: 15px;
-    line-height: 15px;	
-    font-weight: 400;	
+    line-height: 15px;
 }
 
 
 .recordediticons.secondleft {
-    float:left; 
-    left:16px; 
-    margin-top:45px; 
-    background-color:transparent; 
-    color:#777777; 
-    max-width:100px; 
-    font-size:10px; 
+    float:left;
+    left:16px;
+    margin-top:45px;
+    background-color:transparent;
+    color:#777777;
+    max-width:100px;
+    font-size:10px;
     line-height:10px;
 }
 
