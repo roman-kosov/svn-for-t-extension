@@ -123,6 +123,11 @@ $(document).ready(function () {
     line-height:10px;
 }
 
+.tp-record-edit-icons-left__one-right-space{
+	display:table-cell;
+	width:5px;
+}
+
 .t-rec:hover {
     border: dashed 1px aqua;
 }
