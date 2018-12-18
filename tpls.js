@@ -124,7 +124,8 @@ $(document).ready(function () {
             }
 
             .t-rec:hover {
-                border: dashed 1px aqua;
+                outline: dashed 1px aqua;
+                outline-offset: -1px;
             }
         </style>
 
