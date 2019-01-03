@@ -35,13 +35,13 @@ function addEditUi(recordid, tplid) {
 }
 
 $(document).ready(function () {
-    $("[data-record-type]").each(function () {
-        var recid = $(this).attr("id");
-        var tplid = $(this).attr("data-record-type");
-        addEditUi(recid.substr(3), tplid);
-    });
+$("[data-record-type]").each(function () {
+    var recid = $(this).attr("id");
+    var tplid = $(this).attr("data-record-type");
+    addEditUi(recid.substr(3), tplid);
+});
 
-    $("body").append(`
+$("body").append(`
 <style>
 .t-rec:hover .recordediticons {
     display: block
@@ -131,6 +131,7 @@ $(document).ready(function () {
     var t875_removeSelection = function() {};
     document.removeEventListener("mousemove", function() { });
     document.removeEventListener("mousedown", function() { });
+    $("body").css("user-select", "unset");
 </script>
-    `);
+`);
 });
