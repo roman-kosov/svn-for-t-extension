@@ -127,6 +127,13 @@ $(document).ready(function () {
                 outline: dashed 1px aqua;
                 outline-offset: -1px;
             }
+
+            .body {
+                user-select: unset !important;
+                -moz-user-select: unset !important;
+                -webkit-user-select: unset !important;
+                -ms-user-select: unset !important;
+            }
         </style>
 
         <script>
