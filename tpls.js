@@ -132,11 +132,14 @@ $("body").append(`
     document.removeEventListener("mousemove", function () {});
     document.removeEventListener("mousedown", function () {});
     $("body").css("user-select", "unset");
+    let whiteList = ["player.vimeo.com", "youtube.com"];
     document.querySelectorAll("iframe").forEach(function (el) {
-        el.insertAdjacentHTML('beforebegin', "<span style='style="outline: dashed 1px #0ff;outline-offset: -1px; background: #f0f0f0;'>Это какой-то iframe</span>");
-        el.style.outline = "dashed 5px #0ff";
-        el.style.outlineOffset = "-7px";
-        el.style.border = "#0ff dashed 1px";
+        if(!whiteList.some(site => el.src.includes(site))) {
+            el.insertAdjacentHTML('beforebegin', "<span style='style='outline: dashed 1px #0ff;outline-offset: -1px; background: #f0f0f0;'>Это какой-то iframe</span>");
+            el.style.outline = "dashed 5px #0ff";
+            el.style.outlineOffset = "-7px";
+            el.style.border = "#0ff dashed 1px";
+        }
     });
 </script>
 `);
