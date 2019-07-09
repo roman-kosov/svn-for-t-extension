@@ -23,6 +23,12 @@ function addEditUi(recordid, tplid) {
         data += `           <span class="tp-record-edit-icons-left__item-tplcod">#rec${recordid}</span>`;
         data += `       </div>`;
         data += `   </div>`;
+        data += `	<div class="tp-record-edit-icons-left__one-right-space"></div>`;
+        data += `   <div class="tp-record-edit-icons-left__one" onclick="javascript:shotBlock(${recordid})">`;
+        data += `       <div class="tp-record-edit-icons-left__item-title">`;
+        data += `           <span class="tp-record-edit-icons-left__item-tplcod">∅</span>`;
+        data += `       </div>`;
+        data += `   </div>`;
     }
     data += ` </div>`;
     data += `</div>`;
@@ -134,13 +140,31 @@ $(document).ready(function () {
     $("body").css("user-select", "unset");
     let whiteList = ["player.vimeo.com", "youtube.com"];
     document.querySelectorAll("iframe").forEach(function (el) {
-        if(!whiteList.some(site => el.src.includes(site))) {
-            el.insertAdjacentHTML('beforebegin', "<span style='style='outline: dashed 1px #0ff;outline-offset: -1px; background: #f0f0f0;'>Это какой-то iframe</span>");
+        if (!whiteList.some(site => el.src.includes(site))) {
             el.style.outline = "dashed 5px #0ff";
             el.style.outlineOffset = "-7px";
             el.style.border = "#0ff dashed 1px";
         }
     });
 </script>
-`);
+    `);
+
+if (document.body) {
+    let script = document.createElement("script");
+    script.id = "html2canvas";
+    script.src = "https://html2canvas.hertzen.com/dist/html2canvas.min.js";
+    document.body.appendChild(script);
+}
+
+function shotBlock(recid) {
+    html2canvas(document.querySelector("#rec" + recid), {
+        allowTaint: true,
+        useCORS: true
+    }).then(canvas => {
+        var a = document.createElement('a');
+        a.href = canvas.toDataURL("image/jpeg").replace("image/jpeg", "image/octet-stream");
+        a.download = "recid" + recid + ".jpg";
+        a.click();
+    });
+}
 });
