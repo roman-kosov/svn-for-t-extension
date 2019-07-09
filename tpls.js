@@ -23,8 +23,8 @@ function addEditUi(recordid, tplid) {
         data += `           <span class="tp-record-edit-icons-left__item-tplcod">#rec${recordid}</span>`;
         data += `       </div>`;
         data += `   </div>`;
-        data += `	<div class="tp-record-edit-icons-left__one-right-space" style="cursor: pointer"></div>`;
-        data += `   <div class="tp-record-edit-icons-left__one" onclick="javascript:shotBlock(${recordid})">`;
+        data += `	<div class="tp-record-edit-icons-left__one-right-space"></div>`;
+        data += `   <div class="tp-record-edit-icons-left__one" onclick="javascript:shotBlock(${recordid})" style="cursor: pointer">`;
         data += `       <div class="tp-record-edit-icons-left__item-title">`;
         data += `           <span class="tp-record-edit-icons-left__item-tplcod">∅</span>`;
         data += `       </div>`;
@@ -155,15 +155,21 @@ $(document).ready(function () {
     }
     
     function shotBlock(recid) {
-        html2canvas(document.querySelector("#rec" + recid), {
+        var x = window.scrollX;
+        var y = window.scrollY;
+        var el = document.querySelector("#rec" + recid);
+        window.scrollTo(0, 0);
+        html2canvas(el, {
             allowTaint: true,
             useCORS: true,
-            logging: false
+            scrollX: 0,
+            scrollY: 0
         }).then(canvas => {
             var a = document.createElement('a');
             a.href = canvas.toDataURL("image/jpeg").replace("image/jpeg", "image/octet-stream");
             a.download = "recid" + recid + ".jpg";
             a.click();
+            window.scrollTo(x, y);
         });
     }
 </script>
