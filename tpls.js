@@ -23,7 +23,7 @@ function addEditUi(recordid, tplid) {
         data += `           <span class="tp-record-edit-icons-left__item-tplcod">#rec${recordid}</span>`;
         data += `       </div>`;
         data += `   </div>`;
-        data += `	<div class="tp-record-edit-icons-left__one-right-space"></div>`;
+        data += `	<div class="tp-record-edit-icons-left__one-right-space" style="cursor: pointer"></div>`;
         data += `   <div class="tp-record-edit-icons-left__one" onclick="javascript:shotBlock(${recordid})">`;
         data += `       <div class="tp-record-edit-icons-left__item-title">`;
         data += `           <span class="tp-record-edit-icons-left__item-tplcod">∅</span>`;
@@ -146,26 +146,26 @@ $(document).ready(function () {
             el.style.border = "#0ff dashed 1px";
         }
     });
+
+    if (document.body) {
+        let script = document.createElement("script");
+        script.id = "html2canvas";
+        script.src = "https://html2canvas.hertzen.com/dist/html2canvas.min.js";
+        document.body.appendChild(script);
+    }
+    
+    function shotBlock(recid) {
+        html2canvas(document.querySelector("#rec" + recid), {
+            allowTaint: true,
+            useCORS: true,
+            logging: false
+        }).then(canvas => {
+            var a = document.createElement('a');
+            a.href = canvas.toDataURL("image/jpeg").replace("image/jpeg", "image/octet-stream");
+            a.download = "recid" + recid + ".jpg";
+            a.click();
+        });
+    }
 </script>
     `);
-
-if (document.body) {
-    let script = document.createElement("script");
-    script.id = "html2canvas";
-    script.src = "https://html2canvas.hertzen.com/dist/html2canvas.min.js";
-    document.body.appendChild(script);
-}
-
-function shotBlock(recid) {
-    html2canvas(document.querySelector("#rec" + recid), {
-        allowTaint: true,
-        useCORS: true,
-        logging: false
-    }).then(canvas => {
-        var a = document.createElement('a');
-        a.href = canvas.toDataURL("image/jpeg").replace("image/jpeg", "image/octet-stream");
-        a.download = "recid" + recid + ".jpg";
-        a.click();
-    });
-}
 });
