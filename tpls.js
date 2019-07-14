@@ -18,7 +18,7 @@ function addEditUi(recordid, tplid) {
         data += `		</div>`;
         data += `	</div>`;
         data += `	<div class="tp-record-edit-icons-left__one-right-space"></div>`;
-        data += `   <div class="tp-record-edit-icons-left__one" onclick="${copy}">`;
+        data += `   <div class="tp-record-edit-icons-left__one" onclick="${copy}" style="cursor: pointer">`;
         data += `       <div class="tp-record-edit-icons-left__item-title">`;
         data += `           <span class="tp-record-edit-icons-left__item-tplcod">#rec${recordid}</span>`;
         data += `       </div>`;
