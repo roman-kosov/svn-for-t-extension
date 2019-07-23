@@ -2,8 +2,8 @@ var $tpls = {18:["Обложка: заголовок, подзаголовок �
 
 function addEditUi(recordid, tplid) {
     var el = $(`#rec${recordid}`);
-    var origin = document.location.origin;
-    var copy = `var t = $('<input>'); $('body').append(t); t.val('${origin}/#rec${recordid}').select(); document.execCommand('copy'); t.remove()`;
+    var href = document.location.origin + document.location.pathname;
+    var copy = `var t = $('<input>'); $('body').append(t); t.val('${href}/#rec${recordid}').select(); document.execCommand('copy'); t.remove()`;
     var data = `<div class="recordediticons mainleft" id="mainleft">`;
     data += `<div class="tp-record-edit-icons-left__wrapper">`;
 
