@@ -1,5 +1,5 @@
 $(() => {
-    let url = new URLSearchParams(data.url);
+    let url = new URLSearchParams(document.location.href);
     let postID = url.get("postid");
     $("body").append(`
         <script>
