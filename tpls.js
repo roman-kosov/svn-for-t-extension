@@ -4,7 +4,7 @@ function addEditUi(rid, tplid) {
     let recid = `#rec${rid}`;
     let el = $(`${recid}`);
     let href = document.location.origin + document.location.pathname;
-    let copy = `var t = $('<input>'); $('body').append(t); t.val('${href}/#rec${rid}').select(); document.execCommand('copy'); t.remove()`;
+    let copy = `var t = $('<input>'); $('body').append(t); t.val('${href}#rec${rid}').select(); document.execCommand('copy'); t.remove()`;
     let data = `<div class="recordediticons mainleft" id="mainleft">`;
     data += `<div class="tp-record-edit-icons-left__wrapper">`;
 
