@@ -567,7 +567,7 @@ function addEditUi(rid, tplid) {
     if (typeof $tpls[tplid] !== "undefined") {
         data += `	<div class="tp-record-edit-icons-left__one">`;
         if (typeof $tpls[tplid][2] !== "undefined") {
-            data += `  <a href="${$tpls[tplid][2]}" target="_blank">`;
+            data += `  <a href="${$tpls[tplid][2]}" target="_blank" title="Вспомогающая статья о блоке">`;
         }
         data += `		<div class="tp-record-edit-icons-left__item">`;
         data += `	    	<div class="tp-record-edit-icons-left__item-title">`;
