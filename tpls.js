@@ -642,7 +642,7 @@ function addEditUi(rid, tplid) {
 }
 
 .recordediticons {
-    z-index: 889;
+    z-index: 999999;
     display: none;
     position: absolute
 }
