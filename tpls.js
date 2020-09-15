@@ -558,9 +558,11 @@ var $tpls = {
 
 function addEditUi(rid, tplid) {
     let recid = `#rec${rid}`;
-    let el = $(`${recid}`);
+    let el = document.querySelector(`${recid}`);
     let href = document.location.origin + document.location.pathname;
     let copy = `var t = $('<input>'); $('body').append(t); t.val('${href}#rec${rid}').select(); document.execCommand('copy'); t.remove()`;
+
+    let div = document.createElement("div");
     let data = `<div class="recordediticons mainleft" id="mainleft">`;
     data += `<div class="tp-record-edit-icons-left__wrapper">`;
 
@@ -599,19 +601,38 @@ function addEditUi(rid, tplid) {
     if (typeof $tpls[tplid] !== "undefined") {
         data += `<div class="recordediticons secondleft tp-record-edit-icons-left__item-tpltitle">${$tpls[tplid][0]}</div>`;
     }
+    div.innerHTML = data;
 
-    el.prepend(data);
+    el.insertBefore(div, el.firstChild);
 }
 
-$(document).ready(function () {
-    $("[data-record-type]").each(function () {
-        let id = $(this).attr("id");
-        let tplid = $(this).attr("data-record-type");
+(function () {
+    var elements = document.querySelectorAll("[data-record-type]");
+    Array.prototype.forEach.call(elements, function (el, i) {
+        let id = el.getAttribute("id");
+        let tplid = el.getAttribute("data-record-type");
         addEditUi(id.substr(3), tplid);
     });
 
-    $("body").append(`
-<style>
+    let script = document.createElement("script");
+    script.innerHTML = `
+    document.oncontextmenu = null;
+    var t875_removeSelection = function () {};
+    document.removeEventListener("mousemove", function () {});
+    document.removeEventListener("mousedown", function () {});
+    document.body.style.userSelect = "unset";
+    let whiteList = ["player.vimeo.com", "youtube.com"];
+    document.querySelectorAll("iframe").forEach(function (el) {
+        if (!whiteList.some(site => el.src.includes(site))) {
+            el.style.outline = "dashed 5px #0ff";
+            el.style.outlineOffset = "-7px";
+            el.style.border = "#0ff dashed 1px";
+        }
+    });
+    `;
+
+    let style = document.createElement("style");
+    style.innerHTML = `
 [data-record-type]:hover .recordediticons {
     display: block
 }
@@ -701,23 +722,10 @@ $(document).ready(function () {
 
 .body {
     user-select: unset !important;
-}
-</style>
+}`;
 
-<script>
-    document.oncontextmenu = null;
-    var t875_removeSelection = function () {};
-    document.removeEventListener("mousemove", function () {});
-    document.removeEventListener("mousedown", function () {});
-    $("body").css("user-select", "unset");
-    let whiteList = ["player.vimeo.com", "youtube.com"];
-    document.querySelectorAll("iframe").forEach(function (el) {
-        if (!whiteList.some(site => el.src.includes(site))) {
-            el.style.outline = "dashed 5px #0ff";
-            el.style.outlineOffset = "-7px";
-            el.style.border = "#0ff dashed 1px";
-        }
-    });
-</script>
-    `);
-});
+    if (document.body) {
+        document.body.appendChild(script);
+        document.body.appendChild(style);
+    }
+})();
