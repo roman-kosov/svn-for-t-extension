@@ -612,7 +612,7 @@ $(document).ready(function () {
 
     $("body").append(`
 <style>
-.t-rec:hover .recordediticons {
+[data-record-type]:hover .recordediticons {
     display: block
 }
 
