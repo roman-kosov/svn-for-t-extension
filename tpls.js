@@ -10,6 +10,9 @@ function addEditUi(rid, tplid) {
 
     if (typeof $tpls[tplid] !== "undefined") {
         data += `	<div class="tp-record-edit-icons-left__one">`;
+        if (typeof $tpls[tplid][2] !== "undefined") {
+            data += `  <a href="${$tpls[tplid][2]}" target="_blank">`;
+        }
         data += `		<div class="tp-record-edit-icons-left__item">`;
         data += `	    	<div class="tp-record-edit-icons-left__item-title">`;
         if (typeof $tpls[tplid][1] !== "undefined") {
@@ -17,6 +20,9 @@ function addEditUi(rid, tplid) {
         }
         data += `	    	</div>`;
         data += `		</div>`;
+        if (typeof $tpls[tplid][2] !== "undefined") {
+            data += `  </a>`;
+        }
         data += `	</div>`;
         data += `	<div class="tp-record-edit-icons-left__one-right-space"></div>`;
         data += `   <div class="tp-record-edit-icons-left__one" onclick="${copy}" style="cursor: pointer" title="Копировать ссылку с якорем на этот блок">`;
