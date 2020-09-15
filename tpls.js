@@ -611,7 +611,12 @@ $(document).ready(function () {
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 3px;
-    color: #111
+}
+
+.tp-record-edit-icons-left__one > a {
+    text-decoration: underline !important;
+    color: #111 !important;
+    cursor: help
 }
 
 .tp-record-edit-icons-left__item-tplcod {
