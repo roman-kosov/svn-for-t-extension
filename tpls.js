@@ -30,14 +30,6 @@ function addEditUi(rid, tplid) {
         data += `           <span class="tp-record-edit-icons-left__item-tplcod">#rec${rid}</span>`;
         data += `       </div>`;
         data += `   </div>`;
-        /*
-        data += `	<div class="tp-record-edit-icons-left__one-right-space"></div>`;
-        data += `   <div class="tp-record-edit-icons-left__one" onclick="javascript:shotBlock(${rid})" style="cursor: pointer">`;
-        data += `       <div class="tp-record-edit-icons-left__item-title">`;
-        data += `           <span class="tp-record-edit-icons-left__item-tplcod">∅</span>`;
-        data += `       </div>`;
-        data += `   </div>`;
-        */
         data += `	<div class="tp-record-edit-icons-left__one-right-space"></div>`;
         data += `   <div class="tp-record-edit-icons-left__one" onclick="javascript:$('${recid}').remove()" style="cursor: pointer">`;
         data += `       <div class="tp-record-edit-icons-left__item-title">`;
@@ -69,11 +61,11 @@ $(document).ready(function () {
 }
 
 .tp-record-edit-icons-left__one[onclick]:hover {
-    background: #ddd;
+    background: #ddd
 }
 
 .recordediticons {
-    z-index: 9999999;
+    z-index: 889;
     display: none;
     position: absolute
 }
@@ -96,7 +88,8 @@ $(document).ready(function () {
     vertical-align: middle;
     background-color: #fff;
     border: 1px solid #ccc;
-    border-radius: 3px
+    border-radius: 3px;
+    color: #111
 }
 
 .tp-record-edit-icons-left__item-tplcod {
@@ -164,34 +157,6 @@ $(document).ready(function () {
             el.style.border = "#0ff dashed 1px";
         }
     });
-
-    /*
-    if (document.body) {
-        let script = document.createElement("script");
-        script.id = "html2canvas";
-        script.src = "https://html2canvas.hertzen.com/dist/html2canvas.min.js";
-        document.body.appendChild(script);
-    }
-    
-    function shotBlock(rid) {
-        var x = window.scrollX;
-        var y = window.scrollY;
-        var el = document.querySelector("#rec" + rid);
-        window.scrollTo(0, 0);
-        html2canvas(el, {
-            allowTaint: true,
-            useCORS: true,
-            scrollX: 0,
-            scrollY: 0
-        }).then(canvas => {
-            var a = document.createElement('a');
-            a.href = canvas.toDataURL("image/jpeg").replace("image/jpeg", "image/octet-stream");
-            a.download = "rid" + rid + ".jpg";
-            a.click();
-            window.scrollTo(x, y);
-        });
-    }
-    */
 </script>
     `);
 });
