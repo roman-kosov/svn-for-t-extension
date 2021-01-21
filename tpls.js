@@ -622,7 +622,7 @@ function addEditUi(rid, tplid) {
     document.removeEventListener("mousemove", function () {});
     document.removeEventListener("mousedown", function () {});
     document.body.style.userSelect = "unset";
-    let whiteList = ["player.vimeo.com", "youtube.com"];
+    var whiteList = ["player.vimeo.com", "youtube.com"];
     document.querySelectorAll("iframe").forEach(function (el) {
         if (!whiteList.some(site => el.src.includes(site))) {
             el.style.outline = "dashed 5px #0ff";
