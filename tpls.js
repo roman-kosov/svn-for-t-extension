@@ -625,19 +625,19 @@ function addEditUi(rid, tplid) {
 
     let script = document.createElement("script");
     script.innerHTML = `
-    document.oncontextmenu = null;
-    var t875_removeSelection = function () {};
-    document.removeEventListener("mousemove", function () {});
-    document.removeEventListener("mousedown", function () {});
-    document.body.style.userSelect = "unset";
-    var whiteList = ["player.vimeo.com", "youtube.com"];
-    document.querySelectorAll("iframe").forEach(function (el) {
-        if (!whiteList.some(site => el.src.includes(site))) {
-            el.style.outline = "dashed 5px #0ff";
-            el.style.outlineOffset = "-7px";
-            el.style.border = "#0ff dashed 1px";
-        }
-    });
+document.oncontextmenu = null;
+var t875_removeSelection = function () {};
+document.removeEventListener("mousemove", function () {});
+document.removeEventListener("mousedown", function () {});
+document.body.style.userSelect = "unset";
+var whiteList = ["player.vimeo.com", "youtube.com"];
+document.querySelectorAll("iframe").forEach(function (el) {
+    if (!whiteList.some(site => el.src.includes(site))) {
+        el.style.outline = "dashed 5px #0ff";
+        el.style.outlineOffset = "-7px";
+        el.style.border = "#0ff dashed 1px";
+    }
+});
     `;
 
     let style = document.createElement("style");
